@@ -9,9 +9,13 @@ import {
 import Home from './components/pages/Home';
 import Blogs from './components/pages/Blogs';
 import Contact from './components/pages/Contact';
+import { Provider } from 'react-redux';
+import store from './store/store';
+
 
 function App() {
   return (
+    <Provider store={store}>
     <Router>
       <NavBar />
       <Routes>
@@ -20,6 +24,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />     
       </Routes>
     </Router>
+    </Provider>
   );
 }
 

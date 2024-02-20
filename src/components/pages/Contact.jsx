@@ -1,9 +1,17 @@
-import React from "react";
+import ContactForm from "../ContactForm";
+import SecondaryNav from "../SecondaryNav";
+
+
+
+
 
 export default function Contact() {
+
+
     return (
-    <div className="flex justify-center items-center h-screen w-full">
-        <p>Contact</p>
+    <div>
+
+        <ContactForm />
     </div>
     )
 }

@@ -1,12 +1,10 @@
 import React from "react";
 import { posts } from "../../constants";
+import SecondaryNav from "../SecondaryNav";
 
 export default function Blogs() {
     return (
-        <div className="flex justify-center items-center h-screen w-full">
-            
-            <p>Blogs</p>
-        </div>
+        <SecondaryNav />
         
     )
 }
