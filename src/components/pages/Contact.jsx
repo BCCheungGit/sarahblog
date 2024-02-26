@@ -6,8 +6,9 @@ export default function Contact() {
 
 
     return (
-    <div>
+    <div className="flex flex-col gap-8">
         <ContactForm />
+        
     </div>
     )
 }

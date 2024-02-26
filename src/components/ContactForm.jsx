@@ -1,9 +1,7 @@
 import React, {useState, useRef} from 'react';
 import {motion} from 'framer-motion';
-
-
-
-
+import { slideIn } from '../utils/motion';
+import { fadeIn } from '../utils/motion';
 
 export default function ContactForm() {
     const [form, setForm] = useState({
@@ -26,42 +24,54 @@ export default function ContactForm() {
 
     return (
         <>
-            <div className='xl:mt-12 xl:top-12 top-24 absolute xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
+            <div className='xl:mt-12 xl:top-20 justify-center top-24 w-screen h-auto absolute xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
             <motion.div
-               animate={{
-                rotate: [0, 0, -10, 10, 0],
-               }} 
-               className='flex flex-col p-8 rounded-sm border-2 border-slate-100'
+               initial= "hidden"
+                animate="show"
+                variants={fadeIn("left", "tween", 0, 0.5)}
+                className='flex flex-col p-8 rounded-sm border-t-2 border-b-2 border-slate-300'
             >
-                    <h3 className='font-playfair font-bold text-2xl'>Get in Touch</h3>
+                    <h3 className='font-playfair text-2xl'>CONTACT</h3>
                 <form
                     ref = {formRef}
                     onSubmit = {handleSubmit}
                     className='mt-6 flex flex-col'
                 >
-                    <label className='flex flex-row'>
-                        <span className='font-playfair font-medium mr-4 mt-2'>Your Name: </span>
+                    <label className='flex flex-col'>
+                        <span className='font-playfair font-medium mr-4 mt-4'>Your Name: </span>
                         <input 
                             type = "text"
                             name = "name"
                             value = {form.name}
                             onChange = {handleChange}
                             placeholder = "What's your name?"
-                            className='py-2 px-6 border-2 font-medium font-playfair placeholder:text-slate-300'
+                            className='py-2 px-6 border-2 mt-2 font-medium font-playfair placeholder:text-slate-300'
                         />
                     </label>
-                    <label className='flex flex-row'>
-                        <span className='font-playfair font-medium mr-4 mt-8'>Your Email: </span>
+                    <label className='flex flex-col'>
+                        <span className='font-playfair font-medium mr-4 mt-4'>Your Email: </span>
                         <input 
                             type="email"
                             name="email"
                             value = {form.email}
                             onChange={handleChange}
                             placeholder="What's your email?"
-                            className='py-2 px-6 border-2 mt-6 font-medium font-playfair placeholder:text-slate-300'
+                            className='py-2 px-6 border-2 mt-2 font-medium font-playfair placeholder:text-slate-300'
                         />
 
                     </label>
+                    <label className='flex flex-col'>
+                        <span className='font-playfair font-medium mr-4 mt-4'>Your Message: </span>
+                        <textarea
+                            name="message"
+                            value={form.message}
+                            onChange={handleChange}
+                            placeholder="What's your message?"
+                            className='py-2 h-24 px-6 border-2 mt-2 font-medium font-playfair placeholder:text-slate-300'
+                        />
+
+                    </label>
+
                 </form>
                 </motion.div>
 

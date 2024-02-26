@@ -3,9 +3,9 @@ import { secondaryNavLinks } from "../constants";
 import { useState } from "react";
 import { useAppDispatch } from "../store/hooks";
 import {setTag} from "../store/slices/appSlice";
-import { Link } from "react-router-dom";
 
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/motion";
 
 export default function SecondaryNav() {
     const dispatch = useAppDispatch();
@@ -17,7 +17,12 @@ export default function SecondaryNav() {
     }
 
     return (
-        <nav className={`${styles.paddingX} w-full flex items-center py-4 border-b-2 border-slate-200 fixed top-24 border-t-2 z-20 bg-white`}>
+        <motion.div
+        initial = "hidden"
+        animate = "show"
+        variants = {fadeIn("down", "tween", 0, 0.6)}
+        >
+        <nav className={`${styles.paddingX} w-full sm:flex hidden items-center py-4 border-b-2 border-slate-200 fixed top-24 border-t-2 z-20 bg-white`}>
             
             <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
                 <ul className="list-none hidden sm:flex flex-row gap-10">
@@ -39,5 +44,6 @@ export default function SecondaryNav() {
             </div>
             
         </nav>
+        </motion.div>
     )
 }

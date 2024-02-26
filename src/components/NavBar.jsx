@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import collapse from "../assets/collapsenav.svg";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/motion";
 
 export default function NavBar() {
     const [toggle, setToggle] = useState(false);
@@ -49,6 +51,11 @@ export default function NavBar() {
                             className="cursor-pointer w-[31px] h-[31px] object-contain"
                             onClick={() => setToggle(!toggle)}
                         />
+                        <motion.div
+                        initial = "hidden"
+                        animate = "show"
+                        variants = {fadeIn("down", "tween", 0, 0.6)}
+                        >
                         <div className={`${!toggle ? 'hidden' : 'flex'} p-6 absolute bg-white top-20 right-0 mx-0 my-2 min-w[140px] z-10 border-slate-200 border-2`}>
                             <ul className="list-none flex justify-end items-start flex-col gap-2">
                                 <li>
@@ -72,6 +79,7 @@ export default function NavBar() {
 
                             </ul>
                         </div>
+                        </motion.div>
                     </div>
                     
                 </div>
