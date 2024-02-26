@@ -46,7 +46,7 @@ export default function NavBar() {
                         <img 
                             src={collapse}
                             alt="menu"
-                            className="cursor-pointer w-[28px] h-[28px] object-contain"
+                            className="cursor-pointer w-[31px] h-[31px] object-contain"
                             onClick={() => setToggle(!toggle)}
                         />
                         <div className={`${!toggle ? 'hidden' : 'flex'} p-6 absolute bg-white top-20 right-0 mx-0 my-2 min-w[140px] z-10 border-slate-200 border-2`}>
