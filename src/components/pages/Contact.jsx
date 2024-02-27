@@ -24,14 +24,14 @@ export default function Contact() {
 
     return (
         <>
-            <div className='xl:mt-12 xl:top-20 justify-center top-24 w-screen h-auto absolute xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
+            <div className='xl:mt-12 xl:top-20 justify-center top-24 w-screen h-auto absolute items-center flex-col flex gap-10 overflow-hidden'>
             <motion.div
                initial= "hidden"
                 animate="show"
                 variants={fadeIn("left", "tween", 0, 0.5)}
                 className='flex flex-col p-8 rounded-sm border-t-2 border-b-2 border-slate-300 justify-center items-center w-3/5'
             >
-                    <h3 className='font-playfair text-2xl'>CONTACT</h3>
+                    <h3 className='font-playfair text-2xl'>EMAIL</h3>
                 <form
                     ref = {formRef}
                     onSubmit = {handleSubmit}
@@ -75,6 +75,21 @@ export default function Contact() {
                 </form>
                 </motion.div>
 
+                <motion.div
+                initial = {{ x: "50%", opacity: 0}}
+                whileInView={{x: 0, opacity: 1}}
+                transition={{duration: 1}}
+
+                className='flex flex-col p-8 rounded-sm mb-8 border-b-2 border-slate-300 justify-center items-center w-3/5'
+                >
+                 <h3 className='font-playfair text-2xl'>SOCIAL</h3>
+                 <ul className='flex flex-col'>
+                        <li className='font-lato font-medium mt-4'>Twitter: @twitter</li>
+                        <li className='font-lato font-medium mt-4'>Instagram: @instagram</li>
+                        <li className='font-lato font-medium mt-4'>Facebook: @facebook</li>
+
+                 </ul>
+                </motion.div>
             </div>
         </>
     )
